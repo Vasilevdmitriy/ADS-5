@@ -15,6 +15,8 @@ public:
   TPQueue(const TPQueue&);
   ~TPQueue();
   void push(const T&);
+  void addTail(const T&);
+  void addHead(const T&);
   T pop();
 private:
   TPQueue::ITEM* create(const T&);
@@ -67,12 +69,13 @@ void TPQueue<T>::addHead(const T& data){
 }
 
 template<typename T>
-void TPQueue<T>::push(const T & item) {
-      while(tail != nullptr) {
-        if (tail.prior < item.prior) {
-            T.addHead(item);
+void TPQueue<T>::push(const T & data) {
+      ITEM * item;
+      while(tail->next) {
+        if (temp->data.prior < data.prior) {
+            void addHead(item);
         } else {
-             T.addTail(item);
+            void addTail(item);
         }
       }
 }
