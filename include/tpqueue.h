@@ -70,12 +70,14 @@ void TPQueue<T>::addHead(const T& data){
 
 template<typename T>
 void TPQueue<T>::push(const T & data) {
-      ITEM * temp;
+      ITEM * temp = create(data);
       while(tail->next) {
         if (temp->data.prior < data.prior) {
-            void addHead(data);
+            temp->next = head;
+            head = temp;
         } else {
-            void addTail(data);
+            head = create(data);
+            tail = head;
         }
       }
 }
