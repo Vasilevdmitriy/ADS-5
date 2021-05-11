@@ -33,7 +33,7 @@ TPQueue<T>::TPQueue(const T& data){
 template<typename T>
 TPQueue<T>::~TPQueue(){
   while(head)
-    rmHead();
+    pop();
 }
 
 template<typename T>
@@ -70,12 +70,12 @@ void TPQueue<T>::addHead(const T& data){
 
 template<typename T>
 void TPQueue<T>::push(const T & data) {
-      ITEM * item;
+      ITEM * temp;
       while(tail->next) {
         if (temp->data.prior < data.prior) {
-            void addHead(item);
+            void addHead(data);
         } else {
-            void addTail(item);
+            void addTail(data);
         }
       }
 }
@@ -88,9 +88,7 @@ T TPQueue<T>::pop(){
     delete head;
     head = temp;
     return data;
-  } else {
-    return (T)0;
-  }
+  } 
 }
 
 struct SYM {
