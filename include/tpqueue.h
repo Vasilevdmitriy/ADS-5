@@ -43,28 +43,7 @@ typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data){
   return item;
 }
 
-template<typename T>
-void TPQueue<T>::addTail(const T& data){
-  if(tail && head){
-    tail->next = create(data);
-    tail = tail -> next;
-  } else {
-    head = create(data);
-    tail = head;
-  }
-}
 
-template<typename T>
-void TPQueue<T>::addHead(const T& data){
-  if(tail && head){
-    ITEM *temp = create(data);
-    temp->next = head;
-    head = temp;
-  } else {
-    head = create(data);
-    tail = head;
-  }
-}
 
 template<typename T>
 void TPQueue<T>::push(const T & data) {
