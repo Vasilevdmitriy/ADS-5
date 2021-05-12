@@ -45,33 +45,34 @@ typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data){
 
 template<typename T>
 void TPQueue<T>::push(const T & data) {
-
-        if(tail && head){
-               ITEM *temp1 = head;
-             if(temp1->data.prior <= data.prior){
-                while(temp1->next){
-                    if (data.prior <= temp1->next->data.prior) {
-                    temp1 = temp1->next;
-                    } else {
-                        ITEM *temp2 = create(data);
-                        temp2->next = temp1->next;
-                        temp1->next = temp2;
-                    }
-                }
-                
-             } else {
-                temp1 = create(data);
-                temp1->next = head;
-                head = temp1;
-            }
-          if (!temp1->next) {
-                 tail->next = create(data);
-                  tail = tail->next;
-                 }
-        } else {
-                head = create(data);
-                tail = head;
+  ITEM *temp1;
+    ITEM *temp2;
+  if (tail && head) {
+      temp1 = head;
+      if (data.prior > temp->data.prior) {
+        temp1 = create(data);
+        temp1->next = head;
+        head = temp;
+      } else {
+        while (temp1->next) {
+          if (data.prior > temp1->next->data.prior) {
+            temp2 = create(data);
+            temp2->next = temp1->next;
+            temp1->next = temp2;
+            break;
+          } else {
+            temp1 = temp1->next;
+          }
         }
+      }
+      if (!temp1->next) {
+        tail->next = create(data);
+        tail = tail->next;
+      }
+    } else {
+      head = create(data);
+      tail = head;
+    }
 }
 
 T TPQueue<T>::pop(){
