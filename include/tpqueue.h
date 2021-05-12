@@ -44,7 +44,6 @@ typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data){
 }
 
 
-template<typename T>
 void TPQueue<T>::push(const T & data) {
     ITEM *temp1;
     ITEM *temp2;
@@ -76,7 +75,6 @@ void TPQueue<T>::push(const T & data) {
         }
 }
 
-template<typename T>
 T TPQueue<T>::pop(){
   if(head){
     ITEM *temp = head->next;
