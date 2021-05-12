@@ -60,15 +60,16 @@ void TPQueue<T>::push(const T & data) {
                         temp1->next = temp2;
                     }
                 }
-                if (!temp->next) {
-                 tail->next = create(data);
-                  tail = tail->next;
-                 }
+                
              } else {
                 temp1 = create(data);
                 temp1->next = head;
                 head = temp1;
             }
+          if (!temp->next) {
+                 tail->next = create(data);
+                  tail = tail->next;
+                 }
         } else {
                 head = create(data);
                 tail = head;
