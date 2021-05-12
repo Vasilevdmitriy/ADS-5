@@ -66,7 +66,7 @@ void TPQueue<T>::push(const T & data) {
                 temp1->next = head;
                 head = temp1;
             }
-          if (!temp->next) {
+          if (!temp1->next) {
                  tail->next = create(data);
                   tail = tail->next;
                  }
