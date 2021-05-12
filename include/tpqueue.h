@@ -47,7 +47,7 @@ template<typename T>
 void TPQueue<T>::push(const T & data) {
   if (tail && head) {
      ITEM * temp1 = head;
-      if (data.prior > temp->data.prior) {
+      if (data.prior > temp1->data.prior) {
         temp1 = create(data);
         temp1->next = head;
         head = temp;
@@ -73,6 +73,7 @@ void TPQueue<T>::push(const T & data) {
     }
 }
 
+template<typename T>
 T TPQueue<T>::pop(){
   if(head){
     ITEM *temp = head->next;
