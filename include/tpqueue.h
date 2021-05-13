@@ -5,38 +5,37 @@
 
 template<typename T>
 class TPQueue {
-  struct ITEM{
-   T data;
-   ITEM * next;
-  };
-public:
-  TPQueue(): head(nullptr), tail(nullptr){};
-  TPQueue(const T&);
+ struct ITEM{
+ T data;
+ ITEM * next;
+ };
+ public:
+  TPQueue(): head(nullptr), tail(nullptr){}
+  explicit TPQueue(const T&);
   TPQueue(const TPQueue&);
   ~TPQueue();
   void push(const T&);
   T pop();
-private:
+ private:
   TPQueue::ITEM* create(const T&);
   ITEM *head;
   ITEM *tail;
 };
 
 template<typename T>
-TPQueue<T>::TPQueue(const T& data){
+TPQueue<T>::TPQueue(const T& data) {
   head = create(data);
   tail = head;
 }
 
 template<typename T>
-TPQueue<T>::~TPQueue(){
+TPQueue<T>::~TPQueue() {
   while(head)
     pop();
 }
 
 template<typename T>
-typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data){
-  
+typename TPQueue<T>::ITEM* TPQueue<T>::create(const T& data) {
   ITEM *item = new ITEM;
   item->data = data;
   item->next = nullptr;
@@ -75,13 +74,13 @@ void TPQueue<T>::push(const T & data) {
 
 template<typename T>
 T TPQueue<T>::pop(){
-  if(head){
+  if (head) {
     ITEM *temp = head->next;
     T data = head->data;
     delete head;
     head = temp;
     return data;
-  } 
+  }
 }
 
 struct SYM {
