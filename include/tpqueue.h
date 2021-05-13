@@ -5,12 +5,12 @@
 
 template<typename T>
 class TPQueue {
- struct ITEM{
- T data;
- ITEM * next;
- };
+struct ITEM{
+T data;
+ITEM * next;
+};
  public:
-  TPQueue(): head(nullptr), tail(nullptr){}
+  TPQueue(): head(nullptr), tail(nullptr) {}
   explicit TPQueue(const T&);
   TPQueue(const TPQueue&);
   ~TPQueue();
@@ -30,7 +30,7 @@ TPQueue<T>::TPQueue(const T& data) {
 
 template<typename T>
 TPQueue<T>::~TPQueue() {
-  while(head)
+  while (head)
     pop();
 }
 
@@ -73,7 +73,7 @@ void TPQueue<T>::push(const T & data) {
 }
 
 template<typename T>
-T TPQueue<T>::pop(){
+T TPQueue<T>::pop() {
   if (head) {
     ITEM *temp = head->next;
     T data = head->data;
